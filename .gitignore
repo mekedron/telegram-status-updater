@@ -1,0 +1,5 @@
+.env
+.telegram_session
+.idea
+node_modules
+dist
