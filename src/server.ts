@@ -7,26 +7,6 @@ import Client from "./server/client.js";
 // @ts-ignore
 const PORT = parseInt(process.env.PORT, 10) || 3000;
 
-async function clearEmojiStatus(client: TelegramClient) {
-  await client.invoke(
-    new Api.account.UpdateEmojiStatus({
-      emojiStatus: new Api.EmojiStatusEmpty
-    })
-  )
-}
-
-async function setEmojiStatus(client: TelegramClient, documentId: bigint) {
-  await client.invoke(
-    new Api.account.UpdateEmojiStatus({
-      emojiStatus: new Api.EmojiStatus({
-        documentId: bigInt(documentId)
-      })
-    })
-  )
-}
-
-console.log('Initializing...');
-
 const client = await Client();
 
 const app = express();
@@ -57,6 +37,24 @@ app.get('/', async (req, res) => {
     console.error(error);
   }
 });
+
+async function clearEmojiStatus(client: TelegramClient) {
+  await client.invoke(
+    new Api.account.UpdateEmojiStatus({
+      emojiStatus: new Api.EmojiStatusEmpty
+    })
+  )
+}
+
+async function setEmojiStatus(client: TelegramClient, documentId: bigint) {
+  await client.invoke(
+    new Api.account.UpdateEmojiStatus({
+      emojiStatus: new Api.EmojiStatus({
+        documentId: bigInt(documentId)
+      })
+    })
+  )
+}
 
 app.listen(PORT);
 

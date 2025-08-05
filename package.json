@@ -4,8 +4,8 @@
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "prestart": "npx tsc",
-    "start": "node dist/server.js --interactive",
+    "build": "npx tsc",
+    "start": "node dist/server.js",
     "bot": "node dist/bot.js",
     "background": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,7 +23,6 @@
     "big-integer": "^1.6.52",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
-    "input": "^1.0.1",
     "prompts": "^2.4.2",
     "telegraf": "^4.16.3",
     "telegram": "^2.26.22"

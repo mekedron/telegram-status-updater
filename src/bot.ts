@@ -10,8 +10,6 @@ bot.use(async (ctx, next) => {
   // @ts-ignore
   const updateMessage: any = ctx.update?.message;
 
-  console.log(updateMessage);
-
   if (
     !updateMessage ||
     updateMessage?.from?.id !== MY_ID ||
